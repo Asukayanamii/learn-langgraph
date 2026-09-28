@@ -9,24 +9,58 @@
 
 ## 三十秒上手
 
+挑一种你习惯的方式，任选其一即可。
+
+### 方式一：uv（最快，推荐）
+
+[uv](https://docs.astral.sh/uv/) 是目前最快的 Python 包管理器，全过程约 10 秒。
+
 ```bash
-# 1. 创建虚拟环境
+uv venv                             # 创建 .venv（约 0.2 秒）
+uv pip install -r requirements.txt  # 装依赖（约 10 秒）
+uv run verify_all.py                # 一键跑通全部课程
+```
+
+还没装 uv？
+
+```powershell
+# Windows (PowerShell)
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+```bash
+# macOS / Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+### 方式二：pip + venv（Python 自带，无需额外工具）
+
+```bash
 python -m venv .venv
 .venv\Scripts\activate            # Windows
 # source .venv/bin/activate       # macOS / Linux
 
-# 2. 装依赖
 pip install -r requirements.txt
-
-# 3. 一键跑通全部课程（约 15 秒）
 python verify_all.py
 ```
+
+### 方式三：conda
+
+```bash
+conda create -n learn-langgraph python=3.12 -y
+conda activate learn-langgraph
+pip install -r requirements.txt
+python verify_all.py
+```
+
+---
 
 看到 `全部通过！11/11 个脚本正常运行` 就说明环境没问题。
 
 ```bash
 # 想自己跟它对话？
 python lessons/01_basic_chatbot.py --interactive
+# 用 uv 的话：
+uv run lessons/01_basic_chatbot.py --interactive
 ```
 
 > **不需要 API Key。** 项目内置了一个「离线模拟模型」，
