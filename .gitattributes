@@ -1,0 +1,13 @@
+# 统一用 LF 换行，避免 Windows / macOS / Linux 协作时整个项目被标记为"已修改"
+* text=auto eol=lf
+
+# 二进制文件不做换行符转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.sqlite binary
+*.db binary
+*.xlsx binary
+*.zip binary
